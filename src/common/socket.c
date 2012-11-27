@@ -112,7 +112,7 @@ bool socket_accept(socket_t socket, socket_t *accepted, socket_address_t *addres
 
 bool socket_receive(socket_t socket, void *data, size_t size, size_t *received)
 {
-	const ssize_t rc = recv(socket, data, size, 0);
+	long const rc = recv(socket, data, size, 0);
 	if (rc <= 0)
 	{
 		return false;
@@ -129,7 +129,7 @@ bool socket_send(socket_t socket, const void *data, size_t size)
 
 	while (remaining < end)
 	{
-		const ssize_t rc = send(socket, remaining, (size_t)(end - remaining), 0);
+		const long rc = send(socket, remaining, (size_t)(end - remaining), 0);
 		if (rc <= 0)
 		{
 			return false;
