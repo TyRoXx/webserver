@@ -112,13 +112,13 @@ bool socket_accept(socket_t socket, socket_t *accepted, socket_address_t *addres
 
 bool socket_receive(socket_t socket, void *data, size_t size, size_t *received)
 {
-	const int rc = recv(socket, data, size, 0);
+	const ssize_t rc = recv(socket, data, size, 0);
 	if (rc <= 0)
 	{
 		return false;
 	}
 
-	*received = rc;
+	*received = (size_t)rc;
 	return true;
 }
 
@@ -129,7 +129,7 @@ bool socket_send(socket_t socket, const void *data, size_t size)
 
 	while (remaining < end)
 	{
-		const int rc = send(socket, remaining, (end - remaining), 0);
+		const ssize_t rc = send(socket, remaining, (size_t)(end - remaining), 0);
 		if (rc <= 0)
 		{
 			return false;
@@ -165,6 +165,6 @@ bool ip_address_to_string(string_t *dest, ip_address_t source)
 		source.digits[2],
 		source.digits[3]
 		);
-	
+
 	return string_assign_c_str(dest, buffer);
 }

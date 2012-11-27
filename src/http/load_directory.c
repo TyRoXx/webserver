@@ -53,7 +53,7 @@ static bool equals_string_ref(const string_ref_t *left, char const *right)
 
 static char *ref_to_string(const string_ref_t *ref)
 {
-	const size_t len = (ref->end - ref->begin);
+	const size_t len = (size_t)(ref->end - ref->begin);
 	char * const result = malloc(len + 1);
 	if (result)
 	{
@@ -159,7 +159,7 @@ bool load_directory(
 			fprintf(stderr, "Unknown handler name\n");
 			goto on_error;
 		}
-		
+
 		args = ref_to_string(&line.args);
 		if (!args)
 		{

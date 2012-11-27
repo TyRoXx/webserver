@@ -51,5 +51,5 @@ char const *istream_data(istream_t *this)
 
 size_t istream_size(istream_t *this)
 {
-	return (this->end - this->begin);
+	return (size_t)(this->end - this->begin);
 }

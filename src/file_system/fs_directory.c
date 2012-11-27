@@ -53,7 +53,7 @@ static bool handle_request(char const *path, struct directory_entry_t *entry, st
 	function_create(&response->destroy_body, close_file, file);
 
 	fseek(file, 0, SEEK_END);
-	response->body_size = ftell(file);
+	response->body_size = (size_t)ftell(file);
 	fseek(file, 0, SEEK_SET);
 	return true;
 

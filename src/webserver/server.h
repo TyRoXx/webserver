@@ -26,7 +26,7 @@ bool server_create(
 	server_t *s,
 	log_t *log,
 	settings_t const *settings,
-	unsigned port
+	uint16_t port
 	);
 void server_run(server_t *s);
 void server_destroy(server_t *s);

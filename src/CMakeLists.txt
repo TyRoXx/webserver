@@ -10,7 +10,7 @@ if(MSVC)
 endif(MSVC)
 
 if(UNIX)
-	list(APPEND CMAKE_C_FLAGS " -Wall -Werror -std=gnu99") #consider -pedantic
+	list(APPEND CMAKE_C_FLAGS " -Wall -Wconversion -std=gnu89") #consider -pedantic
 endif(UNIX)
 
 include_directories(.)

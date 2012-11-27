@@ -38,7 +38,7 @@ static bool load_settings(
 
 int main(int argc, char **argv)
 {
-	const unsigned short acceptor_port = ((argc >= 2) ? (unsigned short)atoi(argv[1]) : 8080);
+	const uint16_t acceptor_port = (uint16_t)((argc >= 2) ? atoi(argv[1]) : 8080);
 	char const * const settings_file_name = ((argc >= 3) ? argv[2] : "settings.txt");
 	settings_t settings;
 	server_t server;

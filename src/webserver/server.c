@@ -242,7 +242,7 @@ bool server_create(
 	server_t *s,
 	log_t *log,
 	settings_t const *settings,
-	unsigned port
+	uint16_t port
 	)
 {
 	s->log = log;

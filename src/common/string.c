@@ -28,7 +28,7 @@ bool string_assign_c_str(string_t *s, char const *source)
 
 bool string_assign(string_t *s, char const *begin, char const *end)
 {
-	size_t const size = (end - begin);
+	size_t const size = (size_t)(end - begin);
 	bool success;
 
 	assert(s);
