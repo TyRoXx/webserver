@@ -9,9 +9,9 @@ if(MSVC)
 	add_definitions("/WX")
 endif(MSVC)
 
-if(UNIX)
-	list(APPEND CMAKE_C_FLAGS " -Wall -Wconversion -std=gnu89") #consider -pedantic
-endif(UNIX)
+if(CMAKE_COMPILER_IS_GNUCXX)
+        list(APPEND CMAKE_C_FLAGS " -g -Wall -Wconversion -std=gnu89") #consider -pedantic
+endif()
 
 include_directories(.)
 include_directories(lua)
