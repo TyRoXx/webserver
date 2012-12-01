@@ -56,7 +56,7 @@ static bool name_equals(char const *name, char const *begin, char const *end)
 	const size_t name_length = strlen(name);
 
 	return
-		(name_length == (end - begin) &&
+		(name_length == (size_t)(end - begin) &&
 		!memcmp(name, begin, name_length));
 }
 

@@ -167,11 +167,11 @@ bool node_plugin_handle_request(
 	const struct http_request_t *request,
 	struct http_response_t *response)
 {
-	//currently no headers
+	/*currently no headers*/
 	char const * const null_ptr = 0;
 	char const * const * const request_headers = &null_ptr;
 
-	//API expects these to be null
+	/*API expects these to be null*/
 	unsigned response_status = 200;
 	char *response_headers = 0;
 	char *response_body = 0;

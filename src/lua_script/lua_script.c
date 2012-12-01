@@ -53,7 +53,7 @@ static bool write_escaped(buffer_t *dest, char c)
 		return false;
 	}
 
-	dest->size += rc;
+	dest->size += (size_t)rc;
 	return true;
 }
 

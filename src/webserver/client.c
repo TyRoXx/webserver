@@ -71,7 +71,7 @@ static bool send_istream(socket_t receiver, istream_t *source)
 
 static void handle_request(client_t *client, const http_request_t *request)
 {
-	http_response_t response = {0};
+	http_response_t response = {};
 	char const *url = request->url;
 	const directory_t * const directory = find_directory_by_host(client, request->host);
 

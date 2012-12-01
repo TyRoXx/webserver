@@ -4,13 +4,13 @@
 
 
 #if (defined WS_WIN32 == defined WS_UNIX)
-#  error either WS_WIN32 or WS_UNIX is expected to be defined
+#	error either WS_WIN32 or WS_UNIX is expected to be defined
 #endif
 
 #ifdef WS_WIN32
-#  ifndef _WIN32
-#    error WS_WIN32 is only expected to be defined when _WIN32 is defined, too
-#  endif
+#	ifndef _WIN32
+#		error WS_WIN32 is only expected to be defined when _WIN32 is defined, too
+#	endif
 #endif
 
 

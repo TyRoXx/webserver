@@ -47,7 +47,7 @@ static bool equals_string_ref(const string_ref_t *left, char const *right)
 {
 	const size_t len = strlen(right);
 	return
-		((left->end - left->begin) == len) &&
+		((size_t)(left->end - left->begin) == len) &&
 		!memcmp(left->begin, right, len);
 }
 

@@ -64,7 +64,7 @@ void socket_destroy(socket_t socket)
 
 bool socket_bind(socket_t socket, uint16_t port)
 {
-	struct sockaddr_in address = {0};
+	struct sockaddr_in address = {};
 	address.sin_family = AF_INET;
 	address.sin_addr.s_addr = INADDR_ANY;
 	address.sin_port = htons(port);
@@ -84,7 +84,7 @@ bool socket_accept(socket_t socket, socket_t *accepted, socket_address_t *addres
 #endif
 		address_size_t;
 
-	struct sockaddr_in temp_address = {0};
+	struct sockaddr_in temp_address = {};
 	address_size_t temp_address_size = sizeof(temp_address);
 
 	*accepted = accept(socket, (struct sockaddr *)&temp_address, &temp_address_size);
@@ -112,7 +112,7 @@ bool socket_accept(socket_t socket, socket_t *accepted, socket_address_t *addres
 
 bool socket_receive(socket_t socket, void *data, size_t size, size_t *received)
 {
-	long const rc = recv(socket, data, size, 0);
+	long const rc = recv(socket, data, (int)size, 0);
 	if (rc <= 0)
 	{
 		return false;
@@ -129,7 +129,7 @@ bool socket_send(socket_t socket, const void *data, size_t size)
 
 	while (remaining < end)
 	{
-		const long rc = send(socket, remaining, (size_t)(end - remaining), 0);
+		const long rc = send(socket, remaining, (int)(end - remaining), 0);
 		if (rc <= 0)
 		{
 			return false;

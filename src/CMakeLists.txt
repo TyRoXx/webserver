@@ -10,7 +10,11 @@ if(MSVC)
 endif(MSVC)
 
 if(CMAKE_COMPILER_IS_GNUCXX)
-        list(APPEND CMAKE_C_FLAGS " -g -Wall -Wconversion -std=gnu89") #consider -pedantic
+	set(flags "-g -Wall -Wconversion -Wextra -ansi")
+	set(flags "${flags} -Wno-unused-parameter")
+	set(flags "${flags} -Wno-missing-field-initializers")
+	#set(flags "${flags} -pedantic")
+	set(CMAKE_C_FLAGS ${flags})
 endif()
 
 include_directories(.)

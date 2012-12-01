@@ -14,7 +14,7 @@ typedef enum http_status_t
 	HttpStatus_Unauthorized = 401,
 	HttpStatus_Forbidden = 403,
 	HttpStatus_NotFound = 404,
-	HttpStatus_InternalServerError = 500,
+	HttpStatus_InternalServerError = 500
 }
 http_status_t;
 

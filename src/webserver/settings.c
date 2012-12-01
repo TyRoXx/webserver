@@ -67,10 +67,10 @@ static char *parse_line(char const **pos, char const *end)
 		++(*pos);
 	}
 
-	line = malloc(line_end - line_begin + 1);
+	line = malloc((size_t)(line_end - line_begin) + 1);
 	if (line)
 	{
-		memcpy(line, line_begin, (line_end - line_begin));
+		memcpy(line, line_begin, (size_t)(line_end - line_begin));
 		line[line_end - line_begin] = '\0';
 	}
 	return line;
