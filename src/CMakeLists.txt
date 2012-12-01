@@ -17,6 +17,15 @@ if(CMAKE_COMPILER_IS_GNUCXX)
 	set(CMAKE_C_FLAGS ${flags})
 endif()
 
+if("${CMAKE_C_COMPILER_ID}" STREQUAL "Clang")
+	message("Using Clang")
+	set(flags "-g -Wall -Wconversion -Wextra")
+	set(flags "${flags} -Wno-unused-parameter")
+	set(flags "${flags} -Wno-missing-field-initializers")
+	set(flags "${flags} -pedantic")
+	set(CMAKE_C_FLAGS ${flags})
+endif()
+
 include_directories(.)
 include_directories(lua)
 

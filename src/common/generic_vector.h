@@ -87,7 +87,7 @@
 	} while (0)
 
 #define WS_GEN_VECTOR_APPEND_RANGE(reference, begin, end, success) do { \
-	size_t const appended_size = ((end) - (begin)); \
+	size_t const appended_size = (size_t)((end) - (begin)); \
 	size_t i = WS_GEN_VECTOR_SIZE(reference); \
 	size_t size = (i + appended_size); \
 	size_t j = 0; \

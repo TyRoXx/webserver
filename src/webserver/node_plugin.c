@@ -73,7 +73,7 @@ static bool request_handle_v0_call(
 		response_status,
 		response_headers,
 		response_body,
-		response_body_size);
+		response_body_size) != 0;
 }
 
 static bool load_request_handler_v0(node_plugin_t *plugin)
