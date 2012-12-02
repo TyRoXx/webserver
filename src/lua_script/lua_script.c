@@ -187,8 +187,8 @@ static bool handle_lua_request(
 	lua_pushcclosure(L, script_add_header, 1);
 	lua_setglobal(L, "AddHeader");
 
-	if (luaL_loadbuffer(L, script.data, script.size, "script") == LUA_OK &&
-		lua_pcall(L, 0, LUA_MULTRET, 0) == LUA_OK)
+	if (luaL_loadbuffer(L, script.data, script.size, "script") == 0 &&
+		lua_pcall(L, 0, LUA_MULTRET, 0) == 0)
 	{
 		void * const body_data = execution.body.data;
 		const size_t body_size = execution.body.size;

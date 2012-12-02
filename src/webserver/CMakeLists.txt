@@ -4,7 +4,7 @@ file(GLOB sources
 
 add_executable(webserver ${sources})
 
-target_link_libraries(webserver file_system lua_script sub_directory http common ws_lua)
+target_link_libraries(webserver file_system lua_script sub_directory http common)
 
 if(WIN32)
 	target_link_libraries(webserver ws2_32)
