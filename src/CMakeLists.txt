@@ -28,7 +28,7 @@ endif()
 
 find_package(Lua51)
 if(NOT LUA51_FOUND)
-	message(ERROR "Lua 5.1 required")
+	message(FATAL_ERROR "Lua 5.1 required")
 endif()
 
 include_directories(.)
