@@ -37,6 +37,13 @@ typedef struct string_ref_t
 }
 string_ref_t;
 
+static void print_string_ref(
+		FILE *dest,
+		string_ref_t const *str)
+{
+	fwrite(str->begin, 1, (size_t)(str->end - str->begin), dest);
+}
+
 
 static bool is_string_ref_empty(const string_ref_t *str)
 {
@@ -156,7 +163,9 @@ bool load_directory(
 		handler = find_handler(handlers_begin, handlers_end, &line.handler);
 		if (handler == handlers_end)
 		{
-			fprintf(stderr, "Unknown handler name\n");
+			fputs("Unknown handler name '", stderr);
+			print_string_ref(stderr, &line.handler);
+			fputs("'\n", stderr);
 			goto on_error;
 		}
 
