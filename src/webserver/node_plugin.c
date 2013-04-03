@@ -81,7 +81,8 @@ static bool load_request_handler_v0(node_plugin_t *plugin)
 	node_plugin_request_handler_t *handler = &plugin->request_handler;
 
 	char const * const function_name = "np_handle_request";
-	np_request_handler_fn const function = dyn_lib_find(plugin->library, function_name);
+	np_request_handler_fn const function =
+			dyn_lib_find(plugin->library, function_name);
 	if (!function)
 	{
 		char const * const name = plugin->name;
